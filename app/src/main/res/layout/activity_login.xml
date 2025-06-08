@@ -3,16 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
 
     <LinearLayout
+        android:id="@+id/layoutContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="24dp"
-        tools:layout_editor_absoluteX="73dp"
-        tools:layout_editor_absoluteY="42dp">
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acesse o seu controle de gastos"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp"
+            android:textColor="#000000" />
 
         <EditText
             android:id="@+id/edtEmail"

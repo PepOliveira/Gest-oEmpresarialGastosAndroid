@@ -25,6 +25,13 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         mAuth = FirebaseAuth.getInstance();
 
+        // Verificação automática de login
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+            return;
+        }
+
         btnLogin.setOnClickListener(v -> fazerLogin());
     }
 
@@ -48,5 +55,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 }
+
 
 
