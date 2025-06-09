@@ -28,6 +28,9 @@
             android:name=".MainActivity"
             android:exported="false" />
 
+        <!-- Tela do gráfico -->
+        <activity android:name=".GraficoActivity" />
+
     </application>
 
 </manifest>

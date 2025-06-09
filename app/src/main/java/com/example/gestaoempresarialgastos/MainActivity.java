@@ -3,7 +3,6 @@ package com.example.gestaoempresarialgastos;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -19,9 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -29,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Gasto> listaGastos = new ArrayList<>();
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
-    private Button btnLogout, btnAddGasto;
+    private Button btnLogout, btnAddGasto, btnGrafico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         btnLogout = findViewById(R.id.btnLogout);
         btnAddGasto = findViewById(R.id.btnAddGasto);
+        btnGrafico = findViewById(R.id.btnGrafico);
 
         adapter = new GastoAdapter(listaGastos, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -62,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnAddGasto.setOnClickListener(v -> mostrarDialogAdicionarGasto());
+
+
+        btnGrafico.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, GraficoActivity.class));
+        });
     }
 
     private void buscarGastos() {
